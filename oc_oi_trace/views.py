@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .option_chain_oi_handler import option_chain_oi_handler
 from .models import OptionChainData
 from .forms import OC_OI_FORM
-import q
+
 
 IN = ZoneInfo("Asia/Kolkata")
 
@@ -13,20 +13,6 @@ def home(request):
     return render(request, 'oc_oi_trace/home.html')
 
 def option_chain_oi(request):
-    # oc_oi_objs = OptionChainData.objects.all()
-    # return render(
-    #     request, 
-    #     'oc_oi_trace/option_chain_oi.html',
-    #     {
-    #         'oc_oi_objs': oc_oi_objs,
-    #         'nifty': request.GET.get('nifty'),
-    #         'banknifty': request.GET.get('banknifty'),
-    #     }
-    # )
-    # if request.method == 'POST':
-    #     form = OC_OI_FORM()
-    #     form.save()
-    q(request.GET.get('nifty'), request.GET.get('banknifty'), request.GET.get('5min'), request.method)
     oi_obj = option_chain_oi_handler()
     nf_highestoi_CE, nf_total_CE_OI = oi_obj.nifty_oc_oi_ce_data()
     nf_highestoi_PE, nf_total_PE_OI = oi_obj.nifty_oc_oi_pe_data()
