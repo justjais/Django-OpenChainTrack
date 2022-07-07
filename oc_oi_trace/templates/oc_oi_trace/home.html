@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+<div class="container text-center">
+    <h1>Nifty and BankNifty Option Chain open interest data!!</h1>
+    <br>
+    <h4>Select Option chain symbol:</h4>
+    
+    <form action="{% url 'option_chain_oi' %}">
+
+        <input type="checkbox" name="nifty"> Nifty
+        <!-- <input type="checkbox" id="symbol" name="nifty">
+        <label for="symbol">Nifty</label> -->
+        <br>
+        <!-- <input type="checkbox" id="symbol" name="banknifty">
+        <label for="symbol">Bank Nifty</label> -->
+        <input type="checkbox" name="banknifty">Bank Nifty
+        <br>
+        <br>
+
+        <h4>Select from below time interval for Automatic refresh:</h4>
+        <input type="radio" name ="5min"/>5 mins
+        <input type="radio" name ="15min"/>15 mins
+        <br>
+        <br>
+        <input type="submit" value="Submit" class="btn btn-primary">
+    </form>
+</div>
